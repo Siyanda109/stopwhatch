@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+        }
+          .con{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            text-align: center;
+            transform: translateX(-50%);
+            box-shadow: 10px 10px 15px #d1d1d1, -10px -10px 15px #ffff;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            z-index: 100;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+            b{
+                
+                color: rgb(219, 28, 28);
+            }
+            hr{
+                margin-top: 25px;
+            }
+            
+            #but1{
+                margin: 15px 10px 5px 10px;
+                font-size: .5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                background-color: green;
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid rgb(2, 38, 2);
+                box-shadow:  inset 1px 1px 2px white ;
+                cursor: pointer;
+            }
+            #but2{
+                margin: 15px 10px 5px 10px;
+                font-size: .5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                background-color: rgb(171, 178, 171);
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid rgb(15, 15, 15);
+                box-shadow: inset 1px 1px 2px white ;
+                cursor: pointer;  
+            }
+            #but3{
+                margin: 15px 10px 5px 10px;
+                font-size: .5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                background-color: red;
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid rgb(113, 2, 2);
+                box-shadow: inset 1px 1px 1px white ;
+                cursor: pointer;  
+            }
+            
+          }
+          #but1:active{
+            background-color: #676767;
+          }
+         #but2:hover{
+            background-color: #909090;
+          }
+        #but3:hover{
+            background-color: #ba0a0a;
+          }
+          
+          body{
+            background-color: #f1f1f1;
+          }
+          h1{
+            text-align: center;
+            background-color: black;
+            color: #f1f1f1;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          }
+          #i1{
+            display: block;
+            justify-self: center;
+            font-size: 5em;
+            margin-top: 40px;
+          }
+          .li{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 25px;
+
+            span{
+                border: 2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+                width: 100px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                text-align: center;
+            }
+          }
+          .in{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+
+            span{
+                transform: scaleY(3);
+            }
+          }
+          .timer{
+            text-align: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            z-index: 200;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            display: none;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            width:320px ;
+            box-shadow: 10px 10px 15px #d1d1d1, -10px -10px 15px #ffff;
+            
+            b{
+                color: red;
+            }
+        
+            .buts{
+                display: flex;
+                justify-content: center;
+                gap: 35px;
+            background-color: #f1f1f1;
+
+                
+            }
+
+            .butts{
+            background-color: #f1f1f1;
+               
+                button{
+                    border-radius: 50%;
+                    height: 27px;
+                    margin: 5px;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    font-weight: bolder;
+                    font-size: 1em;
+                    width: 27px;
+                    background-color: rgb(217, 217, 217);
+                    color: #3a3737;
+                    border: none;
+                    box-shadow: 1px 1px 1px grey;
+
+                }
+                button:active{
+                    transition: .5s ease-in-out;
+                    background-color:rgb(91, 91, 91) ;
+                }
+            }
+          }
+          #TimerR{
+            margin: 15px 10px 5px 10px;
+            font-size: .5em;
+            width: 60px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                background-color: rgb(171, 178, 171);
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid rgb(0, 0, 0);
+                box-shadow: inset 1px 1px 1px white ;
+                cursor: pointer; 
+          }
+          #StartS{
+            margin: 15px 10px 5px 10px;
+            font-size: .5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            width: 60px;
+            
+                background-color: green;
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                border: 2px solid rgb(0, 0, 0);
+                box-shadow: inset 1px 1px 1px white ;
+                cursor: pointer; 
+          }
+          .spans{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 10px;
+            transform: scaleY(2);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          }
+          audio{
+            display: none;
+          }
+          .stop{
+               border: 2px solid red;
+               width: 50px;
+               box-shadow: inset 0px 0px 10px red, 0px 0px 10px red;
+               height: 50px;
+               display: grid;
+               place-items: center;
+               color: rgb(255, 255, 255);
+               margin-top: 350px;
+               justify-self: center;
+               padding: 10px;
+               border-radius: 50%;
+               justify-content: center;
+               animation: redd .5s infinite alternate;
+               display: none;
+          }
+          @keyframes redd{
+            100%{
+               box-shadow: inset 0px 0px 50px red, 0px 0px 50px red;
+
+            }
+          }
+          .intro{
+            background-color: black;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            height: 100%;
+            text-align: center;
+            z-index: 200;
+
+            i{
+                color: white;
+                margin-top: 250px;
+                font-size: 5em;
+            }
+            .lod{
+                width: 25%;
+                height: 5px;
+                border: 3px solid white;
+                border-radius: 20px;
+                padding: 5px;
+                justify-self: center;
+                margin-top: 30px;
+
+            }
+            .lode{
+                background-color: white;
+                height: 5px;
+                width: 0%;
+                border-radius: 20px;
+                animation: lod 5s 1;
+                
+            }
+            h1{
+                color: white;
+
+            }
+            p{
+                color: white;
+                margin-top: 70px;
+            }
+
+          }
+          
+    </style>
+</head>
+<body>
+    <h1>STOPWATCH</h1>
+    <i id="i1" class="fa-solid fa-clock"></i>
+    <div class="li"><span id="theStopwatch">Stopwhatch</span><span id="theTimer">Timer</span></div>
+    <div id="stwa" class="con">
+        <div class="in">
+        <span id="s1">00</span>
+        <span class="s2">min</span><b>:</b>
+        <span id="s3">00</span>
+        <span class="s4">sec</span><b>:</b>
+        <span id="s4">00</span>
+        <span id="s5">mil</span>
+        </div>
+        <hr>
+        <button id="but2">RESET</button>
+        <button id="but1">START</button>
+        <button id="but3">STOP</button>
+    </div>
+
+    <div id="timerr" class="timer">
+        <div class="spans">
+        <span id="t1">00</span><span>min</span><b>:</b>
+        <span id="t2">00</span><span>sec</span>
+        </div>
+        <hr>
+        <div class="buts">
+            <div class="butts">
+                <button id="minus1">-</button>
+                <button id="plus1">+</button>
+            </div>
+            <div class="butts">
+                <button id="minus2">-</button>
+                <button id="plus2">+</button>
+            </div>
+        </div>
+        <hr>
+        <button id="TimerR">RESET</button>
+        <button id="StartS">START</button>
+    </div>
+
+    <div id="alex" class="stop">OFF</div>
+
+    <div id="introo" class="intro">
+    <i class="fa-solid fa-clock"></i>
+    <div id="lodeee" class="lod">
+        <div id="lodee" class="lode"></div>
+    </div>
+    <h1 id="percentage">0%</h1>
+    <p>©Developed_AlexDev</p>
+    </div>
+
+    <audio id="song" src="apple_pay_success_sound_effect_aac_34465.m4a" controls loop></audio>
+    <script>
+        
+
+        const s1 = document.getElementById('s1')
+        const s2 = document.getElementById('s3')
+        const s3 = document.getElementById('s4')
+        const but = document.getElementById('but1')
+        const Stopp = document.getElementById('but3')
+        const Resetbut = document.getElementById('but2')
+        const minus1 = document.getElementById('minus1')
+        const minus2 = document.getElementById('minus2')
+        const plus2 = document.getElementById('plus2')
+        const plus1 = document.getElementById('plus1')
+        const t1 = document.getElementById('t1')
+        const t2 = document.getElementById('t2')
+        const resbut = document.getElementById('TimerR')
+        const starbut = document.getElementById('StartS')
+        const song = document.getElementById('song')
+        const theTimer = document.getElementById('theTimer')
+        const theStopwatch = document.getElementById('theStopwatch')
+        const timerr = document.getElementById('timerr')
+        const alex = document.getElementById('alex')
+        const introo = document.getElementById('introo')
+        const stwa = document.getElementById('stwa')
+
+
+        const lodee = document.getElementById('lodee')
+        const lodeee = document.getElementById('lodeee')
+        const percentage = document.getElementById('percentage')
+
+        let loading = 0
+
+        let min = 0
+        let sec = 0
+        let mil = 0
+        let even = 0
+
+        let min2 = 0
+        let sec2 = 0
+
+        let intervalId44 = setInterval(() => {
+            loading++
+           
+        lodee.style.width = `${loading}%`
+
+        percentage.textContent = `${loading}%`
+
+        if(loading == 100){
+            clearInterval(intervalId44)
+
+            setTimeout(() => {
+                percentage.style.opacity = 0
+                lodeee.style.opacity = 0
+
+                percentage.style.transition = '1s ease-in-out'
+                lodeee.style.transition = '1s ease-in-out'       
+
+            }, 3000);
+
+            setTimeout(() => {
+                introo.style.display = 'none'
+            }, 4000);
+        }
+        else{
+            console.log(loading)
+        }
+        }, 50);
+
+        but.addEventListener('click',()=>{
+
+            even++
+
+            const  intervalId1 = setInterval(() => {
+            min++
+            s1.textContent = min
+
+            if(min <= 9){
+                s1.textContent = `0${min}`
+            }
+
+        }, 60002);
+
+       const intervalId2 = setInterval(() => {
+            sec++
+            s2.textContent = sec
+
+            if(sec == 60){
+                sec = 0
+            }
+            else if(sec <= 9){
+                s2.textContent = `0${sec}`
+            }
+        }, 1000);
+
+       const intervalId3 = setInterval(() => {
+            mil++
+            s3.textContent = mil
+            if(mil == 60){
+                mil = 0
+            }
+        },10);
+
+        but.style.display = 'none'
+
+        Stopp.addEventListener('click',()=>{
+            clearInterval(intervalId3)
+            clearInterval(intervalId2)
+            clearInterval(intervalId1)
+
+        })
+      
+        Resetbut.addEventListener('click',()=>{
+            but.style.display = 'inline'
+            s1.textContent = '00'
+            s2.textContent = '00'
+            s3.textContent = '00'
+            min = 0
+            sec = 0
+            mil = 0
+
+        })
+
+        })
+
+        plus1.addEventListener('click',()=>{
+            min2++
+            if(min2 <= 9){
+                t1.textContent = `0${min2}`
+            }
+            else{
+                t1.textContent = min2
+            }
+
+        })
+        
+        minus1.addEventListener('click',()=>{
+            min2--
+            if(min2 <= 9){
+                t1.textContent = `0${min2}`
+
+            if(min2 == -1){
+            min2 = 0
+            t1.textContent = `0${min2}`
+            }
+        }
+            else{
+                t1.textContent = min2
+            }
+        })
+
+        plus2.addEventListener('click',()=>{
+            sec2++
+            if(sec2 <= 9){
+                t2.textContent = `0${sec2}`
+            }
+            else{
+                t2.textContent = sec2
+            }
+
+        })
+
+        minus2.addEventListener('click',()=>{
+            sec2--
+            if(sec2 <= 9){
+                t2.textContent = `0${sec2}`
+
+            if(sec2 == -1){
+            sec2 = 0
+            t2.textContent = `0${sec2}`
+        }
+            }
+            else{
+                t2.textContent = sec2
+            }
+        })
+
+        starbut.addEventListener('click',()=>{
+        const    intervalId11 = setInterval(() => {
+                            sec2--
+            if(sec2 <= 9 && sec2 > 0){
+                t2.textContent = `0${sec2}`
+            }
+         else if(sec2 == -1){
+            sec2 = 60
+            t2.textContent = sec2
+
+        }
+           else if(min2 == 0 && sec2 == 0){
+                clearInterval(intervalId11)
+                clearInterval(intervalId22)
+
+                 song.play()  
+
+            t2.textContent = '00'
+            t1.textContent = '00'
+
+            alex.style.display = 'grid'                
+
+            }
+        
+            else if(sec2 > 9){
+                t2.textContent = sec2
+            }
+                
+            }, 1000);
+
+        const intervalId22 = setInterval(() => {
+                
+                                    min2--
+            if(min2 <= 9 && min2 > 0){
+                t1.textContent = `0${min2}`
+
+            }
+            else if(min2 > 9){
+                t1.textContent = sec2
+            }
+              }, 60000);
+
+        resbut.addEventListener('click',()=>{
+
+              clearInterval(intervalId11)
+              clearInterval(intervalId22)
+
+              sec2 = 0
+              min2 = 0
+
+              t1.textContent = '00'
+              t2.textContent = '00'
+        })
+
+        })
+
+        theTimer.addEventListener('click',()=>{
+            theTimer.style.backgroundColor = 'black'
+            theTimer.style.color = '#f1f1f1'
+            theStopwatch.style.backgroundColor = '#f1f1f1'
+            theStopwatch.style.color = 'black'
+            timerr.style.display = 'block'
+            stwa.style.opacity = '0'
+
+        })
+
+        theStopwatch.addEventListener('click',()=>{
+            theStopwatch.style.backgroundColor = 'black'
+            theStopwatch.style.color = '#f1f1f1'
+            theTimer.style.backgroundColor = '#f1f1f1'
+            theTimer.style.color = 'black'
+            timerr.style.display = 'none'
+            stwa.style.opacity = '1'
+
+        })
+
+        alex.addEventListener('click',()=>{
+            alex.style.display ='none'
+            song.pause()
+        })
+    </script>
+</body>
+</html>
